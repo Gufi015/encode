@@ -94,6 +94,14 @@ function abrirFoto(){
 	});
 }
 
+btnEnvio.addEventListener('click', function(e){
+	if( seleccionoImagen = false){
+		alert('Seleccione una imagen...');
+	}else{
+		alert('response');
+	}
+});
+
 $.index.add(btnEnvio);
 
 $.index.open();
