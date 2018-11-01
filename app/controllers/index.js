@@ -1,4 +1,3 @@
-
 var ImageFactory = require('ti.imagefactory');
 
 var viewImage,
@@ -8,7 +7,6 @@ var viewImage,
 var seleccionoImagen = false;
 var image;
 var imagenBase64;
-
 
 viewImage = Ti.UI.createImageView({
 	backgroundColor : 'blue',
@@ -58,9 +56,9 @@ function abrirGaleria() {
 			if (event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
 				image = event.media;
 				viewImage.image = image;
-				
+
 				seleccionoImagen = true;
-				
+
 			}
 		},
 		error : function(e) {
@@ -69,61 +67,69 @@ function abrirGaleria() {
 	});
 }
 
-btnFoto.addEventListener('click', function(){
-	if(!Ti.Media.hasCameraPermissions()){
-		Ti.Media.requestCameraPermissions(function(e){
-			if(e.success){
+btnFoto.addEventListener('click', function() {
+	if (!Ti.Media.hasCameraPermissions()) {
+		Ti.Media.requestCameraPermissions(function(e) {
+			if (e.success) {
 				abrirFoto();
-			}else{
+			} else {
 				alert('no se pudo optener permisos de la camara');
 			}
 		});
-	} else{
+	} else {
 		abrirFoto();
 	}
 });
 
-function abrirFoto(){
+function abrirFoto() {
 	Ti.Media.showCamera({
-		success: function(event){
+		success : function(event) {
 			image = event.media;
 			viewImage.image = image;
-			
+
 			seleccionoImagen = true;
 		},
-		error: function(e){
+		error : function(e) {
 			alert('error al abrir la imagen' + e.error);
 		}
 	});
 }
 
-btnEnvio.addEventListener('click', function(e){
-	if( seleccionoImagen == false){
+btnEnvio.addEventListener('click', function(e) {
+	if (seleccionoImagen == false) {
 		alert('Seleccione una imagen...');
-	}else{
+	} else {
 		var url = 'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA';
-		
+
 		var httpClient = Ti.Network.createHTTPClient({
-			onload: function(e){
-				
+			onload : function(e) {
+
 				var respuesta = JSON.parse(this.responseText);
 				Ti.API.info(respuesta);
 			},
-			onsendstream: function(e){
+			onsendstream : function(e) {
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
 			},
-			onerror: function(e){
-				alert('error al enviar la imagen: '+ e.error);	
+			onerror : function(e) {
+				alert('error al enviar la imagen: ' + e.error);
 			},
-			timeout: 10000
+			timeout : 10000
 		});
-		
-		imagenBase64 = Ti.Utils.base64encode(image).toString();
-		
+
+		var imagenComprimida = ImageFactory.compress(blob, 0.25);
+
+		var archivo = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.png');
+		archivo.write(imagenComprimida);
+
+		var archivo2 = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.png');
+		archivo2.read();
+
+		imagenBase64 = Ti.Utils.base64encode(archivo2).toString();
+
 		httpClient.open('POST', url);
 		httpClient.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		httpClient.send({
-			source: imagenBase64
+			source : imagenBase64
 		});
 	}
 });
