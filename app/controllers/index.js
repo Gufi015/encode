@@ -40,7 +40,7 @@ btnEnvio = Ti.UI.createButton({
 });
 
 btnGaleria.addEventListener('click', function(e) {
-
+	abrirGaleria();
 });
 
 function abrirGaleria() {
@@ -48,7 +48,7 @@ function abrirGaleria() {
 		allowEditing : true,
 		mediaTypes : [Ti.Media.MEDIA_TYPE_PHOTO],
 		success : function(event) {
-			if (e.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
+			if (event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
 				var image = event.media;
 				viewImage.image = image;
 			}
