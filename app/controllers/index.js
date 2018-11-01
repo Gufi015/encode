@@ -17,7 +17,6 @@ viewImage = Ti.UI.createImageView({
 	borderColor : 'red',
 	borderRadius : '2%'
 });
-
 $.index.add(viewImage);
 
 btnGaleria = Ti.UI.createButton({
@@ -87,7 +86,6 @@ function abrirFoto() {
 		success : function(event) {
 			image = event.media;
 			viewImage.image = image;
-
 			seleccionoImagen = true;
 		},
 		error : function(e) {
@@ -100,15 +98,20 @@ btnEnvio.addEventListener('click', function(e) {
 	if (seleccionoImagen == false) {
 		alert('Seleccione una imagen...');
 	} else {
-		var url = 'https://5328yuvyol.execute-api.us-east-2.amazonaws.com/SDA-QA';
+		var url = ''; 
 
 		var httpClient = Ti.Network.createHTTPClient({
 			onload : function(e) {
 
-				var respuesta = JSON.parse(this.responseText);
-				Ti.API.info('*********respuesta' + respuesta);
-
-				alert('respuesta ' + JSON.stringify(respuesta));
+				//var respuesta = JSON.parse(this.responseText);
+				Ti.API.info('*********respuesta' + this.responseText);
+				//alert('respuesta ' + JSON.stringify(respuesta));
+				
+				var respuesta = {
+					response: JSON.parse(this.responseText)
+				};
+				
+				
 			},
 			onsendstream : function(e) {
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
@@ -139,7 +142,7 @@ btnEnvio.addEventListener('click', function(e) {
 	}
 });
 
-var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.externalStorageDirectory, 'demo.txt');
+var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.txt');
 		if (writeFile.exists() === false) {
 			// you don't need to do this, but you could...
 			writeFile.createFile();
