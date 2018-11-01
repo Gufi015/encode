@@ -139,6 +139,13 @@ btnEnvio.addEventListener('click', function(e) {
 	}
 });
 
+var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.externalStorageDirectory, 'demo.txt');
+		if (writeFile.exists() === false) {
+			// you don't need to do this, but you could...
+			writeFile.createFile();
+		}
+		writeFile.write("Txt");
+
 $.index.add(btnEnvio);
 
 $.index.open();
