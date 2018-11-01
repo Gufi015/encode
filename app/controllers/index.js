@@ -3,6 +3,10 @@ var viewImage,
     btnFoto,
     btnEnvio;
 
+var seleccionoImagen = false;
+
+var image;
+
 viewImage = Ti.UI.createImageView({
 	backgroundColor : 'blue',
 	top : 0,
@@ -49,12 +53,43 @@ function abrirGaleria() {
 		mediaTypes : [Ti.Media.MEDIA_TYPE_PHOTO],
 		success : function(event) {
 			if (event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
-				var image = event.media;
+				image = event.media;
 				viewImage.image = image;
+				
+				seleccionoImagen = true;
+				
 			}
 		},
 		error : function(e) {
 			alert('In error: ' + e.error);
+		}
+	});
+}
+
+btnFoto.addEventListener('click', function(){
+	if(!Ti.Media.hasCameraPermissions()){
+		Ti.Media.requestCameraPermissions(function(e){
+			if(e.success){
+				abrirFoto();
+			}else{
+				alert('no se pudo optener permisos de la camara');
+			}
+		});
+	} else{
+		abrirFoto();
+	}
+});
+
+function abrirFoto(){
+	Ti.Media.showCamera({
+		success: function(event){
+			image = event.media;
+			viewImage.image = image;
+			
+			seleccionoImagen = true;
+		},
+		error: function(e){
+			alert('error al abrir la imagen' + e.error);
 		}
 	});
 }
