@@ -1,5 +1,5 @@
 
-var ImagenFactory = require(ti.imagenfactory);
+var ImageFactory = require('ti.imagefactory');
 
 var viewImage,
     btnGaleria,
@@ -113,14 +113,17 @@ btnEnvio.addEventListener('click', function(e){
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
 			},
 			onerror: function(e){
-				alert('error en: '+ e.error);	
+				alert('error al enviar la imagen: '+ e.error);	
 			},
 			timeout: 10000
 		});
+		
+		imagenBase64 = Ti.Utils.base64encode(image).toString();
+		
 		httpClient.open('POST', url);
 		httpClient.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		httpClient.send({
-			source: image
+			source: imagenBase64
 		});
 	}
 });
