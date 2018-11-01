@@ -4,6 +4,7 @@ var viewImage,
     btnGaleria,
     btnFoto,
     btnEnvio;
+    
 var seleccionoImagen = false;
 var image;
 var imagenBase64;
@@ -127,6 +128,9 @@ btnEnvio.addEventListener('click', function(e) {
 		archivo2.read();
 
 		imagenBase64 = Ti.Utils.base64encode(archivo2).toString();
+		
+		var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.externalStorageDirectory, 'demo.txt');
+		writeFile.write(JSON.stringify(imagenBase64));
 		
 		var datosEnvio = {
 			"source": imagenBase64
