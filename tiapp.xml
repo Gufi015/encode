@@ -41,7 +41,14 @@
             </dict>
         </plist>
     </ios>
-    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+    		<manifest>
+    			<uses-permission android:name="android.permission.CAMERA"/>
+			<uses-feature android:name="android.hardware.camera"/>
+			<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    		</manifest>
+    </android>
     <modules>
         <module platform="android">hyperloop</module>
         <module platform="iphone">hyperloop</module>
