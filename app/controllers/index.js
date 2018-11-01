@@ -99,7 +99,7 @@ btnEnvio.addEventListener('click', function(e) {
 	if (seleccionoImagen == false) {
 		alert('Seleccione una imagen...');
 	} else {
-		var url = 'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA';
+		var url = 'https://5328yuvyol.execute-api.us-east-2.amazonaws.com/SDA-QA';
 
 		var httpClient = Ti.Network.createHTTPClient({
 			onload : function(e) {
@@ -116,7 +116,7 @@ btnEnvio.addEventListener('click', function(e) {
 			timeout : 10000
 		});
 
-		var imagenComprimida = ImageFactory.compress(blob, 0.25);
+		var imagenComprimida = ImageFactory.compress(image, 0.25);
 
 		var archivo = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.png');
 		archivo.write(imagenComprimida);
@@ -125,12 +125,14 @@ btnEnvio.addEventListener('click', function(e) {
 		archivo2.read();
 
 		imagenBase64 = Ti.Utils.base64encode(archivo2).toString();
+		
+		var datosEnvio = {
+			"source": imagenBase64
+		};
 
 		httpClient.open('POST', url);
 		httpClient.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		httpClient.send({
-			source : imagenBase64
-		});
+		httpClient.send(JSON.stringify(datosEnvio));
 	}
 });
 
