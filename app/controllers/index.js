@@ -105,7 +105,9 @@ btnEnvio.addEventListener('click', function(e) {
 			onload : function(e) {
 
 				var respuesta = JSON.parse(this.responseText);
-				Ti.API.info(respuesta);
+				Ti.API.info('*********respuesta'+respuesta);
+				
+				alert('respuesta '+ JSON.stringify(respuesta));
 			},
 			onsendstream : function(e) {
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
