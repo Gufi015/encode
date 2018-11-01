@@ -114,7 +114,8 @@ btnEnvio.addEventListener('click', function(e){
 			},
 			onerror: function(e){
 				alert('error en: '+ e.error);	
-			}
+			},
+			timeout: 10000
 		});
 		httpClient.open('POST', url);
 		httpClient.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
