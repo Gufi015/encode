@@ -1,11 +1,14 @@
+
+var ImagenFactory = require(ti.imagenfactory);
+
 var viewImage,
     btnGaleria,
     btnFoto,
     btnEnvio;
-
 var seleccionoImagen = false;
-
 var image;
+var imagenBase64;
+
 
 viewImage = Ti.UI.createImageView({
 	backgroundColor : 'blue',
@@ -95,10 +98,29 @@ function abrirFoto(){
 }
 
 btnEnvio.addEventListener('click', function(e){
-	if( seleccionoImagen = false){
+	if( seleccionoImagen == false){
 		alert('Seleccione una imagen...');
 	}else{
-		alert('response');
+		var url = 'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA';
+		
+		var httpClient = Ti.Network.createHTTPClient({
+			onload: function(e){
+				
+				var respuesta = JSON.parse(this.responseText);
+				Ti.API.info(respuesta);
+			},
+			onsendstream: function(e){
+				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
+			},
+			onerror: function(e){
+				alert('error en: '+ e.error);	
+			}
+		});
+		httpClient.open('POST', url);
+		httpClient.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		httpClient.send({
+			source: image
+		});
 	}
 });
 
