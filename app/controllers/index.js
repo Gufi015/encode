@@ -5,7 +5,7 @@ var viewImage,
 
 viewImage = Ti.UI.createImageView({
 	backgroundColor : 'blue',
-	top:0,
+	top : 0,
 	width : Ti.UI.FILL,
 	height : '92%',
 	borderColor : 'red',
@@ -39,41 +39,25 @@ btnEnvio = Ti.UI.createButton({
 	height : '8%',
 });
 
+btnGaleria.addEventListener('click', function(e) {
 
-btnGaleria.addEventListener('click', function(e){
-	
 });
 
-
-function abrirGaleria(){
-	
+function abrirGaleria() {
+	Ti.Media.openPhotoGallery({
+		allowEditing : true,
+		mediaTypes : [Ti.Media.MEDIA_TYPE_PHOTO],
+		success : function(event) {
+			if (e.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
+				var image = event.media;
+				viewImage.image = image;
+			}
+		},
+		error : function(e) {
+			alert('In error: ' + e.error);
+		}
+	});
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $.index.add(btnEnvio);
 
