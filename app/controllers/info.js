@@ -15,4 +15,14 @@ for(var i; i< nuevoObjeto.length; i++){
     texto = texto.replace('-', " ");
 
     
+    var labelDescripcionNombre = Ti.UI.createLabel({
+        color: 'white',
+        height: TI.UI.SIZE,
+        top: 10,
+        text: texto,
+        left: 10,
+        textAlign: 'left'
+    });
+
+    $.winInfo.add(labelDescripcionNombre);
 }
