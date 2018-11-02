@@ -107,11 +107,14 @@ btnEnvio.addEventListener('click', function(e) {
 				Ti.API.info('*********respuesta' + this.responseText);
 				//alert('respuesta ' + JSON.stringify(respuesta));
 				
-				var respuesta = {
+				var miObjetoRespuesta = {
 					response: JSON.parse(this.responseText)
 				};
 				
-				
+				var info = Alloy.createController('info', miObjetoRespuesta).getView();
+				if(true){
+					info.open();
+				}
 			},
 			onsendstream : function(e) {
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
