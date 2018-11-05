@@ -1,5 +1,7 @@
 <Alloy>
-	<Window>
-		<View id="winInfo"></View>
+	<Window backgroundColor="white">
+		<ScrollView showVerticalScrollIndicator="true" >
+			<View id="winInfo"></View>
+		</ScrollView>	
 	</Window>
 </Alloy>

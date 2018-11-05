@@ -25,6 +25,7 @@ btnGaleria = Ti.UI.createButton({
 	left : 0,
 	width : '24%',
 	height : '8%',
+	backgroundImage: 'images/adjuntar.png'
 });
 $.index.add(btnGaleria);
 
@@ -34,6 +35,7 @@ btnFoto = Ti.UI.createButton({
 	right : 0,
 	width : '24%',
 	height : '8%',
+	backgroundImage: 'images/camara-de-fotos.png'
 });
 $.index.add(btnFoto);
 
@@ -42,6 +44,7 @@ btnEnvio = Ti.UI.createButton({
 	bottom : 0,
 	width : '24%',
 	height : '8%',
+	backgroundImage 'images/enviar.png'
 });
 
 btnGaleria.addEventListener('click', function(e) {
@@ -94,30 +97,45 @@ function abrirFoto() {
 	});
 }
 
+var progresBar = Ti.UI.createProgressBar({
+	width: 300,
+	height: 50,
+	min: 0,
+	max: 1,
+	value: 0,
+	message: 'presesando...',
+	font:{
+		fontSize: 12,
+	},
+});
+
 btnEnvio.addEventListener('click', function(e) {
 	if (seleccionoImagen == false) {
 		alert('Seleccione una imagen...');
 	} else {
-		var url = ''; 
-
+		var url = 'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA';
 		var httpClient = Ti.Network.createHTTPClient({
 			onload : function(e) {
 
 				//var respuesta = JSON.parse(this.responseText);
 				Ti.API.info('*********respuesta' + this.responseText);
 				//alert('respuesta ' + JSON.stringify(respuesta));
-				
+
 				var miObjetoRespuesta = {
-					response: JSON.parse(this.responseText)
+					response : JSON.parse(this.responseText)
 				};
-				
+
+				///Ti.App.Properties.setString('objetosService', miObjetoRespuesta);
 				var info = Alloy.createController('info', miObjetoRespuesta).getView();
-				if(true){
+				if (true) {
 					info.open();
 				}
 			},
 			onsendstream : function(e) {
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
+				progresBar.value = e.progress;
+				 $.progressView.add(progresBar);
+
 			},
 			onerror : function(e) {
 				alert('error al enviar la imagen: ' + e.error);
@@ -134,6 +152,7 @@ btnEnvio.addEventListener('click', function(e) {
 		archivo2.read();
 
 		imagenBase64 = Ti.Utils.base64encode(archivo2).toString();
+		Ti.API.info('imagen convertida a base'+imagenBase64);
 
 		var datosEnvio = {
 			"source" : imagenBase64
@@ -144,14 +163,23 @@ btnEnvio.addEventListener('click', function(e) {
 		httpClient.send(JSON.stringify(datosEnvio));
 	}
 });
-
-var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.txt');
-		if (writeFile.exists() === false) {
-			// you don't need to do this, but you could...
-			writeFile.createFile();
-		}
-		writeFile.write("Txt");
-
 $.index.add(btnEnvio);
-
 $.index.open();
+
+// var activityView = Ti.UI.createView({
+	// visible : false,
+// });
+// 
+// var activityIndicator = Ti.UI.createActivityIndicator({
+	// message : 'Procesando...',
+	// height : 'auto',
+	// width : 'auto',
+// });
+// 
+// activityView.add(activityIndicator);
+// activityView.show(); var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.txt');
+// if (writeFile.exists() === false) {
+	// // you don't need to do this, but you could...
+	// writeFile.createFile();
+// }
+// writeFile.write("Txt");
