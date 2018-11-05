@@ -44,7 +44,7 @@ btnEnvio = Ti.UI.createButton({
 	bottom : 0,
 	width : '24%',
 	height : '8%',
-	backgroundImage 'images/enviar.png'
+	backgroundImage: 'images/enviar.png'
 });
 
 btnGaleria.addEventListener('click', function(e) {
