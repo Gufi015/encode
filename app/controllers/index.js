@@ -13,7 +13,7 @@ viewImage = Ti.UI.createImageView({
 	backgroundColor : 'blue',
 	top : 0,
 	width : Ti.UI.FILL,
-	height : '92%',
+	height : '80%',
 	borderColor : 'red',
 	borderRadius : '2%'
 });

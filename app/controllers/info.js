@@ -22,21 +22,21 @@ var args = $.args;
 var datosService = args.response;
 Ti.API.info('aqui esta con argumentos_______________________:' + JSON.stringify(datosService));
 
-//var nuevoObjeto = Object.keys(datosService);
-//var nuevoValor = Object.values(datosService);
+var nuevoObjeto = Object.keys(datosService);
+var nuevoValor = Object.values(datosService);
 
-for (var i = 0; i < datosService.data.length; i++) {
-	//var texto = nuevoObjeto[i];
+for (var i = 0; i < nuevoObjeto.data.length; i++) {
+	var texto = nuevoObjeto.data[i];
 
-	//texto = texto.replace(" ");
-	//texto = texto.replace('-', " ");
+	texto = texto.replace('-', " ");
+	texto = texto.replace('-', " ");
 		
 	var labelDescripcionNombre = Ti.UI.createLabel({
 		color : 'black',
 		height : '7%',
 		width : '25%',
 		top : 10,
-		text : datosService[i].label,
+		text : texto,
 		left : 10,
 		textAlign : 'left'
 	});
@@ -46,7 +46,7 @@ for (var i = 0; i < datosService.data.length; i++) {
 		color: 'black',
 		width: '25%',
 		height: '7%',
-		text: datosService[i].value,
+		text: nuevoValor[i],
 		right: 10,
 		textAlign: 'center'
 		 
