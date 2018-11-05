@@ -20,15 +20,15 @@ var args = $.args;
 // }
 
 var datosService = args.response;
-Ti.API.info('aqui esta con argumentos_______________________:' + datosService);
+Ti.API.info('aqui esta con argumentos_______________________:' + JSON.stringify(datosService));
 
-var nuevoObjeto = Object.keys(datosService);
+//var nuevoObjeto = Object.keys(datosService);
 //var nuevoValor = Object.values(datosService);
 
-for (var i = 0; i < nuevoObjeto.length; i++) {
-	var texto = nuevoObjeto[i];
+for (var i = 0; i < datosService.data.length; i++) {
+	//var texto = nuevoObjeto[i];
 
-	texto = texto.replace(" ");
+	//texto = texto.replace(" ");
 	//texto = texto.replace('-', " ");
 		
 	var labelDescripcionNombre = Ti.UI.createLabel({
@@ -36,7 +36,7 @@ for (var i = 0; i < nuevoObjeto.length; i++) {
 		height : '7%',
 		width : '25%',
 		top : 10,
-		text : texto.data,
+		text : datosService[i].label,
 		left : 10,
 		textAlign : 'left'
 	});
@@ -46,7 +46,7 @@ for (var i = 0; i < nuevoObjeto.length; i++) {
 		color: 'black',
 		width: '25%',
 		height: '7%',
-		text: texto.data,
+		text: datosService[i].value,
 		right: 10,
 		textAlign: 'center'
 		 

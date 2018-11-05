@@ -20,31 +20,31 @@ viewImage = Ti.UI.createImageView({
 $.index.add(viewImage);
 
 btnGaleria = Ti.UI.createButton({
-	title : 'Galeria',
+	//title : 'Galeria',
 	bottom : 0,
 	left : 0,
 	width : '24%',
 	height : '8%',
-	backgroundImage: 'images/adjuntar.png'
+	backgroundImage: '/images/adjuntar.png'
 });
 $.index.add(btnGaleria);
 
 btnFoto = Ti.UI.createButton({
-	title : 'Foto',
+	//title : 'Foto',
 	bottom : 0,
 	right : 0,
 	width : '24%',
 	height : '8%',
-	backgroundImage: 'images/camara-de-fotos.png'
+	backgroundImage: '/images/camara-de-fotos.png'
 });
 $.index.add(btnFoto);
 
 btnEnvio = Ti.UI.createButton({
-	title : 'Enviar',
+	//title : 'Enviar',
 	bottom : 0,
 	width : '24%',
 	height : '8%',
-	backgroundImage: 'images/enviar.png'
+	backgroundImage: '/images/enviar.png'
 });
 
 btnGaleria.addEventListener('click', function(e) {
