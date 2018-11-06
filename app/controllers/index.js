@@ -21,30 +21,30 @@ $.index.add(viewImage);
 
 btnGaleria = Ti.UI.createButton({
 	//title : 'Galeria',
-	bottom : 0,
+	bottom : 10,
 	left : 0,
 	width : '24%',
 	height : '8%',
-	backgroundImage: '/images/adjuntar.png'
+	backgroundImage : '/images/adjuntar.png'
 });
 $.index.add(btnGaleria);
 
 btnFoto = Ti.UI.createButton({
 	//title : 'Foto',
-	bottom : 0,
+	bottom : 10,
 	right : 0,
 	width : '24%',
 	height : '8%',
-	backgroundImage: '/images/camara-de-fotos.png'
+	backgroundImage : '/images/camara-de-fotos.png'
 });
 $.index.add(btnFoto);
 
 btnEnvio = Ti.UI.createButton({
 	//title : 'Enviar',
-	bottom : 0,
+	bottom : 10,
 	width : '24%',
 	height : '8%',
-	backgroundImage: '/images/enviar.png'
+	backgroundImage : '/images/enviar.png'
 });
 
 btnGaleria.addEventListener('click', function(e) {
@@ -98,14 +98,14 @@ function abrirFoto() {
 }
 
 var progresBar = Ti.UI.createProgressBar({
-	width: 300,
-	height: 50,
-	min: 0,
-	max: 1,
-	value: 0,
-	message: 'presesando...',
-	font:{
-		fontSize: 12,
+	width : 300,
+	height : 50,
+	min : 0,
+	max : 1,
+	value : 0,
+	message : 'presesando...',
+	font : {
+		fontSize : 12,
 	},
 });
 
@@ -134,13 +134,13 @@ btnEnvio.addEventListener('click', function(e) {
 			onsendstream : function(e) {
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
 				progresBar.value = e.progress;
-				 $.progressView.add(progresBar);
+				$.progressView.add(progresBar);
 
 			},
 			onerror : function(e) {
 				alert('error al enviar la imagen: ' + e.error);
 			},
-			timeout : 10000
+			timeout : 20000,
 		});
 
 		var imagenComprimida = ImageFactory.compress(image, 0.25);
@@ -152,7 +152,7 @@ btnEnvio.addEventListener('click', function(e) {
 		archivo2.read();
 
 		imagenBase64 = Ti.Utils.base64encode(archivo2).toString();
-		Ti.API.info('imagen convertida a base'+imagenBase64);
+		Ti.API.info('imagen convertida a base' + imagenBase64);
 
 		var datosEnvio = {
 			"source" : imagenBase64
@@ -167,19 +167,19 @@ $.index.add(btnEnvio);
 $.index.open();
 
 // var activityView = Ti.UI.createView({
-	// visible : false,
+// visible : false,
 // });
-// 
+//
 // var activityIndicator = Ti.UI.createActivityIndicator({
-	// message : 'Procesando...',
-	// height : 'auto',
-	// width : 'auto',
+// message : 'Procesando...',
+// height : 'auto',
+// width : 'auto',
 // });
-// 
+//
 // activityView.add(activityIndicator);
 // activityView.show(); var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.txt');
 // if (writeFile.exists() === false) {
-	// // you don't need to do this, but you could...
-	// writeFile.createFile();
+// // you don't need to do this, but you could...
+// writeFile.createFile();
 // }
 // writeFile.write("Txt");
