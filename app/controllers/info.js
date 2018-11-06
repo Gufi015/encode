@@ -22,36 +22,36 @@ var args = $.args;
 var datosService = args.response;
 Ti.API.info('aqui esta con argumentos_______________________:' + JSON.stringify(datosService));
 
-var result = JSON.parse(datosService);
+var result = JSON.stringify(datosService);
 
 var nuevoObjeto = Object.keys(datosService);
 Ti.API.info('esta es la variable nuevo objeto __________________: ' + nuevoObjeto);
-// var nuevoValor = Object.values(datosService);
-// Ti.API.info('esta es la variable nuevo valor __________________: ' + nuevoObjeto);
+var nuevoValor = Object.values(datosService);
+Ti.API.info('esta es la variable nuevo valor __________________: ' + nuevoObjeto);
 
-for (var i = 0; i < result.data.length; i++) {
-	var texto = result.data[i];
+for (var i = 0; i < result.length; i++) {
+	var texto = result[i];
 
 	texto = texto.replace('_', " ");
-	//texto = texto.replace('-', " ");
+	texto = texto.replace('-', " ");
 
 	Ti.API.info('variable texto: ' + texto);
 
-	// var labelDescripcionNombre = Ti.UI.createLabel({
-		// color : 'black',
-		// height : Ti.UI.SIZE,
-		// top : 10,
-		// text : texto,
-		// left : 10,
-		// textAlign : 'left'
-	// });
-// 
-	// $.winInfo.add(labelDescripcionNombre);
+	var labelDescripcionNombre = Ti.UI.createLabel({
+		color : 'black',
+		height : Ti.UI.SIZE,
+		top : 10,
+		text : texto,
+		left : 10,
+		textAlign : 'left'
+	});
+
+	$.winInfo.add(labelDescripcionNombre);
 
 	var valueLabel = Ti.UI.createLabel({
 		color : 'red',
 		height : Ti.UI.SIZE,
-		text : texto,
+		text : nuevoValor[i],
 		right : 10,
 		textAlign : 'center'
 
