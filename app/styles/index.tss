@@ -4,26 +4,26 @@
 "#header":{
 	width: Titanium.UI.FILL,
 	height: '40dp',
-	backgroundColor: 'white',
+	//backgroundColor: 'white',
 	top: 0,
-	borderColor:'red',
-	layout:'vertical'
+	borderColor: 'blue',
+	layout: 'vertical'
 }
 "#container":{
 	width: Titanium.UI.FILL,
 	height: '390dp',
-	backgroundColor: 'blue',
-	borderColor:'red',
-	top:10,
-	layout:'vertical'
+	//backgroundColor: 'blue',
+	borderColor: 'gren',
+	top: 25,
+	layout: 'vertical'
 }
 
 "#footer":{
 	width: Titanium.UI.FILL,
 	height: '80dp',
-	backgroundColor: 'white',
+	//backgroundColor: 'white',
 	bottom: 0,
-	borderColor:'red',
+	borderColor: 'black',
 	left: 10,
-	right:10,
+	right: 10
 }

@@ -11,41 +11,45 @@ var imagenBase64;
 
 viewImage = Ti.UI.createImageView({
 	backgroundColor : 'black',
-	top : '10%',
-	width : '330dp',
-	height : '250dp',
+	top : 30,
+	width : '350dp',
+	height : '280dp',
 	borderColor : 'red',
 	borderRadius : 5,
 	borderWidth: 2,
+	layout: 'vertical'
 });
 $.container.add(viewImage);
 
 btnGaleria = Ti.UI.createButton({
 	//title : 'Galeria',
 	bottom : 10,
-	left : 0,
-	width : 'auto',
-	height : 'auto',
-	backgroundImage : '/images/galeria.png'
+	left : 10,
+	width : '120px',
+	height : '120px',
+	backgroundImage : '/images/galeria.png',
+	top:10,
 });
 $.footer.add(btnGaleria);
 
 btnFoto = Ti.UI.createButton({
 	//title : 'Foto',
 	bottom : 10,
-	right : 0,
-	width : 'auto',
-	height : 'auto',
-	backgroundImage : '/images/camara.png'
+	right : 10,
+	width : '120px',
+	height : '120px',
+	backgroundImage : '/images/camara.png',
+	top:10,
 });
 $.footer.add(btnFoto);
 
 btnEnvio = Ti.UI.createButton({
 	//title : 'Enviar',
 	bottom : 10,
-	width : 'auto',
-	height : 'auto',
-	backgroundImage : '/images/enviar.png'
+	width : '120px',
+	height : '120px',
+	backgroundImage : '/images/enviar.png',
+	top:10,
 });
 
 btnGaleria.addEventListener('click', function(e) {
