@@ -139,7 +139,7 @@ btnEnvio.addEventListener('click', function(e) {
 					min : 0,
 					max : 1,
 					value : 0,
-					message : 'presesando...',
+					message : 'precesando...',
 					font : {
 						fontSize : 12,
 					},
@@ -198,6 +198,7 @@ etiquetas.addEventListener('click', function(e) {
 	rotarImage();
 });
 
+//Función para rotar imagen utilizando el modulo de ti.imageFactory
 function rotarImage() {
 	grados = Number(grados) + 90;
 	var rotarImage = ImageFactory.imageWithRotation(image, {

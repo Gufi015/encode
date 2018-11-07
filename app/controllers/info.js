@@ -9,6 +9,23 @@ var nuevoObjeto = datosService;
 for (var i = 0; i < nuevoObjeto.data.length; i++) {
 
 	Ti.API.info('NUEVO OBJETO ' + nuevoObjeto.data[i]);
+	
+	var viewContenido = Ti.UI.createView({
+		width: Ti.UI.FILL,
+		height: '40dp',
+		layout: 'horizontal',
+		backgroundColor: 'purple'
+	});
+	$.scroll.add(viewContenido);
+	
+	var viewInformacion = Ti.UI.createView({
+		layout: 'vertical',
+		width: '80dp',
+		height: 	Ti.UI.FILL,
+		borderColor: 'black',
+		borderRadius: 1,
+	});
+	viewContenido.add(viewInformacion);
 
 	var label = Ti.UI.createLabel({
 		color : 'black',
@@ -18,8 +35,8 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 		left : 10,
 		textAlign : 'left'
 	});
-	$.viewLeft.add(label);
-
+	viewInformacion.add(label);
+	
 	var labelNombre = Ti.UI.createLabel({
 		color : 'black',
 		height : Ti.UI.SIZE,
@@ -28,5 +45,6 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 		left : 10,
 		textAlign : 'left'
 	});
-	$.viewRight.add(labelNombre);
+	viewInformacion.add(labelNombre);
+
 }
