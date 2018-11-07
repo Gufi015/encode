@@ -8,3 +8,19 @@
 	backgroundColor: '#4aa59b',
 	top: 0
 }
+
+"#viewLeft":{
+	left:0,
+	width:'50%',
+	height: '100%',
+	backgroundColor:'white',
+	layout: 'vertical'
+}
+
+"#viewRight":{
+	right:0,
+	width:'50%',
+	height: '100%',
+	backgroundColor:'white',
+	layout:'vertical'
+}
