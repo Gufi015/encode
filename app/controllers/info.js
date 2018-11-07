@@ -18,13 +18,13 @@ var nuevoObjeto = datosService;
 
 for (var i = 0; i < nuevoObjeto.data.length; i++) {
 
-	Ti.API.info('NUEVO OBJETO ' + nuevoObjeto.data[i].value);
+	Ti.API.info('NUEVO OBJETO ' + nuevoObjeto.data[i]);
 
 	var label = Ti.UI.createLabel({
 		color : 'black',
 		height : Ti.UI.SIZE,
 		top : 10,
-		text : nuevoObjeto.data[0].label,
+		text : nuevoObjeto.data[i].label,
 		left : 10,
 		textAlign : 'left'
 	});
@@ -34,7 +34,7 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 		color : 'black',
 		height : Ti.UI.SIZE,
 		top : 10,
-		text : nuevoObjeto.data[0].value,
+		text : nuevoObjeto.data[i].value,
 		left : 10,
 		textAlign : 'left'
 	});
