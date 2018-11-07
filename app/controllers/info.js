@@ -10,22 +10,14 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 
 	Ti.API.info('NUEVO OBJETO ' + nuevoObjeto.data[i]);
 	
-	var viewContenido = Ti.UI.createView({
-		width: Ti.UI.FILL,
-		height: '40dp',
-		layout: 'horizontal',
-		backgroundColor: 'purple'
-	});
-	$.scroll.add(viewContenido);
-	
 	var viewInformacion = Ti.UI.createView({
 		layout: 'vertical',
-		width: '80dp',
-		height: 	Ti.UI.FILL,
+		width: Ti.UI.FILL,
+		height: 	'100dp',
 		borderColor: 'black',
-		borderRadius: 1,
+		top: 2,
 	});
-	viewContenido.add(viewInformacion);
+	$.scroll.add(viewInformacion);
 
 	var label = Ti.UI.createLabel({
 		color : 'black',

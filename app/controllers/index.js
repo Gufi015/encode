@@ -53,9 +53,8 @@ btnEnvio = Ti.UI.createButton({
 });
 
 //verificar conexion a internet
-if(Ti.Network.networkType == Ti.Network.NETWORK_NONE){
+if(Titanium.Network.networkType == Titanium.Network.NETWORK_NONE){
 	alert('No hay conexión a internet');
-	return;
 }
 
 btnGaleria.addEventListener('click', function(e) {
@@ -177,6 +176,7 @@ btnEnvio.addEventListener('click', function(e) {
 		httpClient.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		httpClient.send(JSON.stringify(datosEnvio));
 	}
+	viewImage = null;
 });
 $.footer.add(btnEnvio);
 

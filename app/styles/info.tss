@@ -5,25 +5,9 @@
 	layout: 'horizontal',
 	width: '100%',
 	height: '100%',
-	backgroundColor: '#4aa59b',
+	backgroundColor: 'white',
 	top: 0
 }
-
-// "#viewLeft":{
-	// left:0,
-	// width:'50%',
-	// height: '100%',
-	// backgroundColor:'white',
-	// layout: 'vertical'
-// }
-// 
-// "#viewRight":{
-	// right:0,
-	// width:'50%',
-	// height: '100%',
-	// backgroundColor:'white',
-	// layout:'vertical'
-// }
 
 "#lblInfo":{
 	font : {
@@ -31,4 +15,5 @@
 		fontWeight : "bold"
 	},
 	top: 0,
+	color: 'black'
 }
