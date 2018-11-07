@@ -13,8 +13,8 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 	var label = Ti.UI.createLabel({
 		color : 'black',
 		height : Ti.UI.SIZE,
-		top : 10,
-		text : nuevoObjeto.data[i].label,
+		top : 25,
+		text : nuevoObjeto.data[i].label + ':',
 		left : 10,
 		textAlign : 'left'
 	});

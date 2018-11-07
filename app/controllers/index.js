@@ -25,7 +25,7 @@ btnGaleria = Ti.UI.createButton({
 	left : 0,
 	width : '24%',
 	height : '8%',
-	backgroundImage : '/images/adjuntar.png'
+	backgroundImage : '/images/galeria.png'
 });
 $.index.add(btnGaleria);
 
@@ -35,7 +35,7 @@ btnFoto = Ti.UI.createButton({
 	right : 0,
 	width : '24%',
 	height : '8%',
-	backgroundImage : '/images/camara-de-fotos.png'
+	backgroundImage : '/images/camara.png'
 });
 $.index.add(btnFoto);
 
@@ -97,18 +97,6 @@ function abrirFoto() {
 	});
 }
 
-var progresBar = Ti.UI.createProgressBar({
-	width : 300,
-	height : 50,
-	min : 0,
-	max : 1,
-	value : 0,
-	message : 'presesando...',
-	font : {
-		fontSize : 12,
-	},
-});
-
 btnEnvio.addEventListener('click', function(e) {
 	if (seleccionoImagen == false) {
 		alert('Seleccione una imagen...');
@@ -133,8 +121,24 @@ btnEnvio.addEventListener('click', function(e) {
 			},
 			onsendstream : function(e) {
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
+
+				var progresBar = Ti.UI.createProgressBar({
+					width : 300,
+					height : 50,
+					min : 0,
+					max : 1,
+					value : 0,
+					message : 'presesando...',
+					font : {
+						fontSize : 12,
+					},
+				});
 				progresBar.value = e.progress;
-				$.progressView.add(progresBar);
+				$.index.add(progresBar);
+
+				setTimeout(function(e) {
+					progresBar.hide();
+				}, 3000);
 
 			},
 			onerror : function(e) {
@@ -166,19 +170,19 @@ btnEnvio.addEventListener('click', function(e) {
 $.index.add(btnEnvio);
 
 var etiquetas = Ti.UI.createLabel({
-	text : 'Etiquetas',
+	text : 'Capturar Foto',
 	font : {
 		fontSize : 19,
 		fontWeight : "bold"
 	},
 	width : Ti.UI.SIZE,
 	height : Ti.UI.SIZE,
-	top: 15,
-	color:'black'
+	top : 15,
+	color : 'black'
 });
 $.index.add(etiquetas);
 
-etiquetas.addEventListener('click', function(e){
+etiquetas.addEventListener('click', function(e) {
 	//alert('alerta');
 	rotarImage();
 });
