@@ -9,22 +9,26 @@
 	top: 0
 }
 
-"#viewLeft":{
-	left:0,
-	width:'50%',
-	height: '100%',
-	backgroundColor:'white',
-	layout: 'vertical'
-}
-
-"#viewRight":{
-	right:0,
-	width:'50%',
-	height: '100%',
-	backgroundColor:'white',
-	layout:'vertical'
-}
+// "#viewLeft":{
+	// left:0,
+	// width:'50%',
+	// height: '100%',
+	// backgroundColor:'white',
+	// layout: 'vertical'
+// }
+// 
+// "#viewRight":{
+	// right:0,
+	// width:'50%',
+	// height: '100%',
+	// backgroundColor:'white',
+	// layout:'vertical'
+// }
 
 "#lblInfo":{
-	
+	font : {
+		fontSize : 19,
+		fontWeight : "bold"
+	},
+	top: 0,
 }

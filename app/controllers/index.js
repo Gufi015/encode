@@ -52,6 +52,12 @@ btnEnvio = Ti.UI.createButton({
 	top:10,
 });
 
+//verificar conexion a internet
+if(Ti.Network.networkType == Ti.Network.NETWORK_NONE){
+	alert('No hay conexión a internet');
+	return;
+}
+
 btnGaleria.addEventListener('click', function(e) {
 	abrirGaleria();
 });

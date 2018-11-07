@@ -1,11 +1,13 @@
 <Alloy>
 	<Window backgroundColor="white">
-		<ScrollView showVerticalScrollIndicator="true" layout="vertical" >
-			<View id="winInfo">
-				<Label id="lblInfo">Información</Label>
-				<View id="viewLeft"></View>
-				<View id="viewRight"></View>
+		<Label id="lblInfo">Información	</Label>
+		<View id="winInfo">
+			<ScrollView showVerticalScrollIndicator="true" layout="vertical" >
+			</ScrollView>
+			<!-- <View id="viewLeft">
 			</View>
-		</ScrollView>	
+			<View id="viewRight">
+			</View> -->
+		</View>
 	</Window>
 </Alloy>

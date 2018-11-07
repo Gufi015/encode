@@ -1,5 +1,5 @@
 ".container":{
-	backgroundColor: 'white'
+	backgroundColor: '#057BBA'
 }
 "#header":{
 	width: Titanium.UI.FILL,
@@ -28,9 +28,3 @@
 	right: 10
 }
 
-"#lblInfo":{
-	font : {
-		fontSize : 19,
-		fontWeight : "bold"
-	},
-}
