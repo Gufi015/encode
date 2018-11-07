@@ -4,14 +4,14 @@ var viewImage,
     btnGaleria,
     btnFoto,
     btnEnvio;
-
+var grados = 0;
 var seleccionoImagen = false;
 var image;
 var imagenBase64;
 
 viewImage = Ti.UI.createImageView({
-	backgroundColor : 'blue',
-	top : 0,
+	backgroundColor : 'transparent',
+	top : '10%',
 	width : Ti.UI.FILL,
 	height : '80%',
 	borderColor : 'red',
@@ -118,7 +118,7 @@ btnEnvio.addEventListener('click', function(e) {
 			onload : function(e) {
 
 				//var respuesta = JSON.parse(this.responseText);
-				Ti.API.info('*********respuesta' + this.responseText);
+				//Ti.API.info('*********respuesta' + this.responseText);
 				//alert('respuesta ' + JSON.stringify(respuesta));
 
 				var miObjetoRespuesta = {
@@ -152,7 +152,7 @@ btnEnvio.addEventListener('click', function(e) {
 		archivo2.read();
 
 		imagenBase64 = Ti.Utils.base64encode(archivo2).toString();
-		Ti.API.info('imagen convertida a base' + imagenBase64);
+		//Ti.API.info('imagen convertida a base' + imagenBase64);
 
 		var datosEnvio = {
 			"source" : imagenBase64
@@ -164,6 +164,21 @@ btnEnvio.addEventListener('click', function(e) {
 	}
 });
 $.index.add(btnEnvio);
+
+$.etiqueta.addEventListener('click', function(e) {
+	alert('rotation');
+	rotarImage();
+});
+
+function rotarImage() {
+	grados = Number(grados) + 90;
+	var rotarImage = ImageFactory.imageWithRotation(image, {
+		degrees : 90,
+	});
+	image = rotarImage;
+	viewImage.setImage(image);
+}
+
 $.index.open();
 
 // var activityView = Ti.UI.createView({
