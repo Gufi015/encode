@@ -179,7 +179,7 @@ var etiquetas = Ti.UI.createLabel({
 $.index.add(etiquetas);
 
 etiquetas.addEventListener('click', function(e){
-	alert('alerta');
+	//alert('alerta');
 	rotarImage();
 });
 

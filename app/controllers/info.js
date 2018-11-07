@@ -6,19 +6,37 @@ Ti.API.info('aqui esta con argumentos_______________________:' + JSON.stringify(
 
 var nuevoObjeto = datosService;
 
-var labelDescripcionNombre = Ti.UI.createLabel({
-	color : 'black',
-	height : Ti.UI.SIZE,
-	top : 10,
-	text : 'Nombre: ' + nuevoObjeto.data[0].value,
-	left : 10,
-	textAlign : 'left'
-});
+// var labelDescripcionNombre = Ti.UI.createLabel({
+// color : 'black',
+// height : Ti.UI.SIZE,
+// top : 10,
+// text : 'Nombre: ' + nuevoObjeto.data[0].value,
+// left : 10,
+// textAlign : 'left'
+// });
+// $.winInfo.add(labelDescripcionNombre);
 
-$.winInfo.add(labelDescripcionNombre);
+for (var i = 0; i < nuevoObjeto.data.length; i++) {
 
-var i = 0;
-for (i in nuevoObjeto) {
-	
-	Ti.API.info('NUEVO OBJETO '+ nuevoObjeto[i].data);
+	Ti.API.info('NUEVO OBJETO ' + nuevoObjeto.data[i].value);
+
+	var label = Ti.UI.createLabel({
+		color : 'black',
+		height : Ti.UI.SIZE,
+		top : 10,
+		text : nuevoObjeto.data[0].label,
+		left : 10,
+		textAlign : 'left'
+	});
+	$.winInfo.add(label);
+
+	var labelNombre = Ti.UI.createLabel({
+		color : 'black',
+		height : Ti.UI.SIZE,
+		top : 10,
+		text : nuevoObjeto.data[0].value,
+		left : 10,
+		textAlign : 'left'
+	});
+	$.winInfo.add(labelNombre);
 }
