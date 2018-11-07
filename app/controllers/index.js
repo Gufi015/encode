@@ -10,40 +10,41 @@ var image;
 var imagenBase64;
 
 viewImage = Ti.UI.createImageView({
-	backgroundColor : 'transparent',
+	backgroundColor : 'black',
 	top : '10%',
-	width : Ti.UI.FILL,
-	height : '80%',
+	width : '330dp',
+	height : '250dp',
 	borderColor : 'red',
-	borderRadius : '2%'
+	borderRadius : 5,
+	borderWidth: 2,
 });
-$.index.add(viewImage);
+$.container.add(viewImage);
 
 btnGaleria = Ti.UI.createButton({
 	//title : 'Galeria',
 	bottom : 10,
 	left : 0,
-	width : '24%',
-	height : '8%',
+	width : 'auto',
+	height : 'auto',
 	backgroundImage : '/images/galeria.png'
 });
-$.index.add(btnGaleria);
+$.footer.add(btnGaleria);
 
 btnFoto = Ti.UI.createButton({
 	//title : 'Foto',
 	bottom : 10,
 	right : 0,
-	width : '24%',
-	height : '8%',
+	width : 'auto',
+	height : 'auto',
 	backgroundImage : '/images/camara.png'
 });
-$.index.add(btnFoto);
+$.footer.add(btnFoto);
 
 btnEnvio = Ti.UI.createButton({
 	//title : 'Enviar',
 	bottom : 10,
-	width : '24%',
-	height : '8%',
+	width : 'auto',
+	height : 'auto',
 	backgroundImage : '/images/enviar.png'
 });
 
@@ -167,7 +168,7 @@ btnEnvio.addEventListener('click', function(e) {
 		httpClient.send(JSON.stringify(datosEnvio));
 	}
 });
-$.index.add(btnEnvio);
+$.footer.add(btnEnvio);
 
 var etiquetas = Ti.UI.createLabel({
 	text : 'Capturar Foto',
@@ -177,10 +178,10 @@ var etiquetas = Ti.UI.createLabel({
 	},
 	width : Ti.UI.SIZE,
 	height : Ti.UI.SIZE,
-	top : 15,
+	top : 5,
 	color : 'black'
 });
-$.index.add(etiquetas);
+$.header.add(etiquetas);
 
 etiquetas.addEventListener('click', function(e) {
 	//alert('alerta');

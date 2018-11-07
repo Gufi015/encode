@@ -46,3 +46,6 @@ ACS.Users.login({
 
 })();
 
+Alloy.Globals.isLandscape = false;
+Alloy.Globals.isPortrait = true;
+

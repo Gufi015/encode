@@ -1,4 +1,29 @@
-".container": {
-	backgroundColor: "white"
+".container":{
+	backgroundColor: 'white'
+}
+"#header":{
+	width: Titanium.UI.FILL,
+	height: '40dp',
+	backgroundColor: 'white',
+	top: 0,
+	borderColor:'red',
+	layout:'vertical'
+}
+"#container":{
+	width: Titanium.UI.FILL,
+	height: '390dp',
+	backgroundColor: 'blue',
+	borderColor:'red',
+	top:10,
+	layout:'vertical'
 }
 
+"#footer":{
+	width: Titanium.UI.FILL,
+	height: '80dp',
+	backgroundColor: 'white',
+	bottom: 0,
+	borderColor:'red',
+	left: 10,
+	right:10,
+}
