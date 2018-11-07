@@ -15,7 +15,7 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 		width: Ti.UI.FILL,
 		height: 	'100dp',
 		borderColor: 'black',
-		top: 2,
+		top: 1,
 	});
 	$.scroll.add(viewInformacion);
 
@@ -25,7 +25,11 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 		top : 25,
 		text : nuevoObjeto.data[i].label + ':',
 		left : 10,
-		textAlign : 'left'
+		textAlign : 'left',
+		font:{
+			fontSize: 19,
+			fontWeight: 'bold'
+		}
 	});
 	viewInformacion.add(label);
 	

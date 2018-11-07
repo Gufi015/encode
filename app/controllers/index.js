@@ -16,8 +16,8 @@ viewImage = Ti.UI.createImageView({
 	height : '280dp',
 	borderColor : 'red',
 	borderRadius : 5,
-	borderWidth: 2,
-	layout: 'vertical'
+	borderWidth : 2,
+	layout : 'vertical'
 });
 $.container.add(viewImage);
 
@@ -28,7 +28,7 @@ btnGaleria = Ti.UI.createButton({
 	width : '120px',
 	height : '120px',
 	backgroundImage : '/images/galeria.png',
-	top:10,
+	top : 10,
 });
 $.footer.add(btnGaleria);
 
@@ -39,7 +39,7 @@ btnFoto = Ti.UI.createButton({
 	width : '120px',
 	height : '120px',
 	backgroundImage : '/images/camara.png',
-	top:10,
+	top : 10,
 });
 $.footer.add(btnFoto);
 
@@ -49,13 +49,8 @@ btnEnvio = Ti.UI.createButton({
 	width : '120px',
 	height : '120px',
 	backgroundImage : '/images/enviar.png',
-	top:10,
+	top : 10,
 });
-
-//verificar conexion a internet
-if(Titanium.Network.networkType == Titanium.Network.NETWORK_NONE){
-	alert('No hay conexión a internet');
-}
 
 btnGaleria.addEventListener('click', function(e) {
 	abrirGaleria();
@@ -108,8 +103,15 @@ function abrirFoto() {
 }
 
 btnEnvio.addEventListener('click', function(e) {
+	//verificar conexion a internet
+	if (Titanium.Network.networkType == Titanium.Network.NETWORK_NONE) {
+		alert('No hay conexión a internet');
+		return;
+	}
+	
+	//Valida que en el viewImage contenga o se haya seleccionado una foto
 	if (seleccionoImagen == false) {
-		alert('Seleccione una imagen...');
+		alert('Seleccione una imagen o tome una Foto!');
 	} else {
 		var url = 'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA';
 		var httpClient = Ti.Network.createHTTPClient({
@@ -176,7 +178,6 @@ btnEnvio.addEventListener('click', function(e) {
 		httpClient.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		httpClient.send(JSON.stringify(datosEnvio));
 	}
-	viewImage = null;
 });
 $.footer.add(btnEnvio);
 
