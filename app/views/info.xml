@@ -2,6 +2,7 @@
 	<Window backgroundColor="white">
 		<ScrollView showVerticalScrollIndicator="true" layout="vertical" >
 			<View id="winInfo">
+				<Label id="lblInfo">Información</Label>
 				<View id="viewLeft"></View>
 				<View id="viewRight"></View>
 			</View>

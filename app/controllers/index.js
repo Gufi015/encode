@@ -143,7 +143,7 @@ btnEnvio.addEventListener('click', function(e) {
 
 				setTimeout(function(e) {
 					progresBar.hide();
-				}, 3000);
+				}, 5000);
 
 			},
 			onerror : function(e) {

@@ -24,3 +24,7 @@
 	backgroundColor:'white',
 	layout:'vertical'
 }
+
+"#lblInfo":{
+	
+}
