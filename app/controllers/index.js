@@ -165,8 +165,21 @@ btnEnvio.addEventListener('click', function(e) {
 });
 $.index.add(btnEnvio);
 
-$.etiqueta.addEventListener('click', function(e) {
-	alert('rotation');
+var etiquetas = Ti.UI.createLabel({
+	text : 'Etiquetas',
+	font : {
+		fontSize : 19,
+		fontWeight : "bold"
+	},
+	width : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+	top: 15,
+	color:'black'
+});
+$.index.add(etiquetas);
+
+etiquetas.addEventListener('click', function(e){
+	alert('alerta');
 	rotarImage();
 });
 

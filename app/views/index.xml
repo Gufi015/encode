@@ -1,6 +1,5 @@
 <Alloy>
 	<Window class="container">
-		<Label id="etiqueta" top="10">etiqueta</Label>
 		<View id="progressView"></View>
 	</Window>
 </Alloy>
