@@ -1,5 +1,6 @@
 ".container":{
-	backgroundColor: '#848484'
+	backgroundColor: '#848484',
+	orientationModes: [Titanium.UI.PORTRAIT]
 }
 "#header":{
 	width: Titanium.UI.FILL,

@@ -209,6 +209,10 @@ function rotarImage() {
 	viewImage.setImage(image);
 }
 
+$.index.addEventListener('androidback', function(e){
+	$.index.close();
+});
+
 $.index.open();
 
 // var activityView = Ti.UI.createView({
