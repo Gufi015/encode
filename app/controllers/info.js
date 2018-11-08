@@ -44,3 +44,9 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 	viewInformacion.add(labelNombre);
 
 }
+
+
+$.win.addEventListener('androidback', function(e){
+	var atras = Alloy.createController('index').getView();
+	atras.open();
+});

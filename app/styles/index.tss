@@ -1,5 +1,5 @@
 ".container":{
-	backgroundColor: '#057BBA'
+	backgroundColor: '#848484'
 }
 "#header":{
 	width: Titanium.UI.FILL,

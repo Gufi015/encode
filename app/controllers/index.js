@@ -10,11 +10,11 @@ var image;
 var imagenBase64;
 
 viewImage = Ti.UI.createImageView({
-	backgroundColor : 'black',
+	backgroundColor : 'white',
 	top : 30,
 	width : '350dp',
 	height : '280dp',
-	borderColor : 'red',
+	borderColor : '#81BEF7',
 	borderRadius : 5,
 	borderWidth : 2,
 	layout : 'vertical'
