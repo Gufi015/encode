@@ -47,6 +47,6 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 
 
 $.win.addEventListener('androidback', function(e){
-	var atras = Alloy.createController('index').getView();
-	atras.open();
+	$.win.close();
+	
 });

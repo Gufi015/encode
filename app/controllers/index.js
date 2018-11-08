@@ -113,7 +113,7 @@ btnEnvio.addEventListener('click', function(e) {
 	if (seleccionoImagen == false) {
 		alert('Seleccione una imagen o tome una Foto!');
 	} else {
-		var url = 'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA';
+		var url = 'https://7chgh1ve59.execute-api.us-east-2.amazonaws.com/sda-test'; //'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA';
 		var httpClient = Ti.Network.createHTTPClient({
 			onload : function(e) {
 
@@ -138,7 +138,7 @@ btnEnvio.addEventListener('click', function(e) {
 					width : 300,
 					height : 50,
 					min : 0,
-					max : 1,
+					max : 3,
 					value : 0,
 					message : 'precesando...',
 					font : {
@@ -150,7 +150,7 @@ btnEnvio.addEventListener('click', function(e) {
 
 				setTimeout(function(e) {
 					progresBar.hide();
-				}, 5000);
+				}, 4000);
 
 			},
 			onerror : function(e) {
