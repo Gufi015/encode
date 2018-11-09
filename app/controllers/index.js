@@ -13,7 +13,7 @@ viewImage = Ti.UI.createImageView({
 	backgroundColor : 'white',
 	top : 30,
 	width : '350dp',
-	height : '280dp',
+	height : '480dp',
 	borderColor : '#81BEF7',
 	borderRadius : 5,
 	borderWidth : 2,
@@ -108,12 +108,13 @@ btnEnvio.addEventListener('click', function(e) {
 		alert('No hay conexión a internet');
 		return;
 	}
-	
+
 	//Valida que en el viewImage contenga o se haya seleccionado una foto
 	if (seleccionoImagen == false) {
 		alert('Seleccione una imagen o tome una Foto!');
 	} else {
-		var url = 'https://7chgh1ve59.execute-api.us-east-2.amazonaws.com/sda-test'; //'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA';
+		var url = 'https://7chgh1ve59.execute-api.us-east-2.amazonaws.com/sda-test';
+		//'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA'; //
 		var httpClient = Ti.Network.createHTTPClient({
 			onload : function(e) {
 
@@ -138,19 +139,20 @@ btnEnvio.addEventListener('click', function(e) {
 					width : 300,
 					height : 50,
 					min : 0,
-					max : 3,
+					max : 1,
 					value : 0,
 					message : 'precesando...',
 					font : {
 						fontSize : 12,
 					},
+					bottom : 55,
 				});
 				progresBar.value = e.progress;
 				$.index.add(progresBar);
 
 				setTimeout(function(e) {
 					progresBar.hide();
-				}, 4000);
+				}, 10000);
 
 			},
 			onerror : function(e) {
@@ -209,24 +211,13 @@ function rotarImage() {
 	viewImage.setImage(image);
 }
 
-$.index.addEventListener('androidback', function(e){
+$.index.addEventListener('androidback', function(e) {
 	$.index.close();
 });
 
 $.index.open();
 
-// var activityView = Ti.UI.createView({
-// visible : false,
-// });
-//
-// var activityIndicator = Ti.UI.createActivityIndicator({
-// message : 'Procesando...',
-// height : 'auto',
-// width : 'auto',
-// });
-//
-// activityView.add(activityIndicator);
-// activityView.show(); var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.txt');
+// var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.txt');
 // if (writeFile.exists() === false) {
 // // you don't need to do this, but you could...
 // writeFile.createFile();

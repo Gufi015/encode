@@ -12,7 +12,7 @@
 }
 "#container":{
 	width: Titanium.UI.FILL,
-	height: '390dp',
+	height: '490dp',
 	//backgroundColor: 'blue',
 	//borderColor: 'gren',
 	top: 25,
