@@ -105,6 +105,16 @@ function abrirFoto() {
 	});
 }
 
+var progresBar = Ti.UI.Android.createProgressIndicator({
+	location : Ti.UI.Android.PROGRESS_INDICATOR_DIALOG,
+	type : Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT,
+	min : 0,
+	max : 100,
+	message : 'precesando...',
+	cancelable : true
+});
+$.index.add(progresBar);
+
 btnEnvio.addEventListener('click', function(e) {
 	//verificar conexion a internet
 	if (Titanium.Network.networkType == Titanium.Network.NETWORK_NONE) {
@@ -137,25 +147,23 @@ btnEnvio.addEventListener('click', function(e) {
 			},
 			onsendstream : function(e) {
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
+				progresBar.show();
 
-				var progresBar = Ti.UI.createProgressBar({
-					width : 300,
-					height : 50,
-					min : 0,
-					max : 1,
-					value : 0,
-					message : 'precesando...',
-					font : {
-						fontSize : 12,
-					},
-					bottom : 55,
-				});
-				progresBar.value = e.progress;
-				$.index.add(progresBar);
+				var value = 0;
+				setInterval(function() {
+					if (value > 100) {
+						return;
+					}
+					progresBar.value = value;
+					value++;
+				}, 300); 
 
-				setTimeout(function(e) {
+
+				//progresBar.setValue(e.progress);
+
+				setTimeout(function() {
 					progresBar.hide();
-				}, 10000);
+				}, 20000);
 
 			},
 			onerror : function(e) {
