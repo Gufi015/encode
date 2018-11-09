@@ -64,7 +64,8 @@ function abrirGaleria() {
 			if (event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
 				image = event.media;
 				viewImage.image = image;
-
+				viewImage.width = Ti.UI.SIZE;
+				viewImage.height = Ti.UI.SIZE;
 				seleccionoImagen = true;
 
 			}
@@ -94,6 +95,8 @@ function abrirFoto() {
 		success : function(event) {
 			image = event.media;
 			viewImage.image = image;
+			viewImage.width = Ti.UI.SIZE;
+			viewImage.height = Ti.UI.SIZE;
 			seleccionoImagen = true;
 		},
 		error : function(e) {
