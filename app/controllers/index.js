@@ -126,7 +126,9 @@ btnEnvio.addEventListener('click', function(e) {
 	if (seleccionoImagen == false) {
 		alert('Seleccione una imagen o tome una Foto!');
 	} else {
-		var url = 'https://7chgh1ve59.execute-api.us-east-2.amazonaws.com/sda-test';
+		var url = 'https://7chgh1ve59.execute-api.us-east-2.amazonaws.com/sda-test'; 
+		
+		//'https://7chgh1ve59.execute-api.us-east-2.amazonaws.com/sda-test';
 		//'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA'; //
 		var httpClient = Ti.Network.createHTTPClient({
 			onload : function(e) {
@@ -209,7 +211,9 @@ $.header.add(etiquetas);
 
 etiquetas.addEventListener('click', function(e) {
 	//alert('alerta');
-	rotarImage();
+	//rotarImage();
+	var sig = Alloy.createController('extra').getView();
+	sig.open();
 });
 
 //Función para rotar imagen utilizando el modulo de ti.imageFactory

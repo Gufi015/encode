@@ -1,0 +1,11 @@
+
+".container" : {
+  
+}
+
+"#viewList":{
+	width: Titanium.UI.FILL,
+	height: '44dp',
+	borderColor: 'white',
+	borderRadius:2,
+}
