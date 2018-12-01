@@ -1,12 +1,16 @@
 <Alloy>
-	<Window  id="windowsGeneral">
-		<View backgroundColor="#20B4D8">
-			<Label id="texto_Informacion"></Label>
-			<ListView id="streamListview" >
+	<Window  id="win">
+		<View id="main" backgroundColor="#20B4D8">
+			<ListView id="streamListview">
 				<Templates backgroundColor="red">
 					<ItemTemplate name="template" id="template">
-						<View  id="viewList">
-							<Label bindId="username" id="labeltexto"/>
+						<View id="mainView">
+							<View  id="viewLabel">
+								<Label bindId="label" id="labeltexto"/>
+							</View>
+							<View  id="viewValue">
+								<Label bindId="value" id="labelvalue"/>
+							</View>
 						</View>
 					</ItemTemplate>
 				</Templates>

@@ -1,11 +1,27 @@
 
-".container" : {
-  
-}
+".container": {}
 
-"#viewList":{
+"#mainView":{
+	layout: 'horizontal',
+	width: Titanium.UI.FILL,
+	height: '100dp',
+}
+"#viewLabel": {
+	width: Titanium.UI.FILL,
+	height: '44dp',
+	//borderColor: 'white',
+	//borderRadius: 2,
+	layout: 'Verical'
+}
+"#viewValue": {
 	width: Titanium.UI.FILL,
 	height: '44dp',
 	borderColor: 'white',
-	borderRadius:2,
+	borderRadius: 2,
+	layout: 'Verical'
+}
+
+"#main":{
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL
 }
