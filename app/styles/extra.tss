@@ -5,12 +5,13 @@
 	layout: 'horizontal',
 	width: Titanium.UI.FILL,
 	height: '100dp',
+	top: 10,
 }
 "#viewLabel": {
 	width: Titanium.UI.FILL,
 	height: '44dp',
-	//borderColor: 'white',
-	//borderRadius: 2,
+	borderColor: 'white',
+	borderRadius: 2,
 	layout: 'Verical'
 }
 "#viewValue": {

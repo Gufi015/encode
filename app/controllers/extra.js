@@ -32,7 +32,7 @@ $.section.height = '44dp';
 /*Aqui comieza la parte de almacenaar los objetos en las properties*/
 
 var datos = datosService;
-datos = [];
+datos = [datosService];
 
 Ti.App.Properties.setObject('miarray', datos);
 var miarray = Ti.App.Properties.getObject('miarray');
