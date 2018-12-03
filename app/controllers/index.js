@@ -109,7 +109,7 @@ var progresBar = Ti.UI.Android.createProgressIndicator({
 	location : Ti.UI.Android.PROGRESS_INDICATOR_DIALOG,
 	type : Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT,
 	min : 0,
-	max : 100,
+	max : 30,
 	message : 'precesando...',
 	cancelable : true
 });
@@ -126,8 +126,8 @@ btnEnvio.addEventListener('click', function(e) {
 	if (seleccionoImagen == false) {
 		alert('Seleccione una imagen o tome una Foto!');
 	} else {
-		var url = 'https://7chgh1ve59.execute-api.us-east-2.amazonaws.com/sda-test'; 
-		
+		var url = 'https://7chgh1ve59.execute-api.us-east-2.amazonaws.com/sda-test';
+
 		//'https://7chgh1ve59.execute-api.us-east-2.amazonaws.com/sda-test';
 		//'https://ko7afa9vef.execute-api.us-east-2.amazonaws.com/SDA'; //
 		var httpClient = Ti.Network.createHTTPClient({
@@ -146,6 +146,7 @@ btnEnvio.addEventListener('click', function(e) {
 				if (true) {
 					info.open();
 				}
+
 			},
 			onsendstream : function(e) {
 				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
@@ -158,8 +159,7 @@ btnEnvio.addEventListener('click', function(e) {
 					}
 					progresBar.value = value;
 					value++;
-				}, 300); 
-
+				}, 300);
 
 				//progresBar.setValue(e.progress);
 
@@ -211,9 +211,7 @@ $.header.add(etiquetas);
 
 etiquetas.addEventListener('click', function(e) {
 	//alert('alerta');
-	//rotarImage();
-	var sig = Alloy.createController('extra').getView();
-	sig.open();
+	rotarImage();
 });
 
 //Función para rotar imagen utilizando el modulo de ti.imageFactory

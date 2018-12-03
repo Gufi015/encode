@@ -58,21 +58,32 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 }
 
 var btnSig = Ti.UI.createButton({
-	title: 'siguiente',
-	width: '140dp',
-	backgroundColor: 'white',
-	color: 'black',
-	bottom: 10,
-	right:10
+	title : 'ver documentos',
+	width : '140dp',
+	backgroundColor : 'white',
+	color : 'black',
+	bottom : 10,
+	right : 10
 });
 $.win.add(btnSig);
 
-btnSig.addEventListener('click', function(e){
+btnSig.addEventListener('click', function(e) {
 	var siguiente = Alloy.createController('extra', args).getView();
 	siguiente.open();
 });
 
-$.win.addEventListener('androidback', function(e) {
-	$.win.close();
+var btnOtro = Ti.UI.createButton({
+	title : 'Atras',
+	width : '140dp',
+	backgroundColor : 'white',
+	color : 'black',
+	bottom : 10,
+	left : 10
+});
+$.win.add(btnOtro);
+
+btnOtro.addEventListener('click', function(e) {
+	var inicio = Alloy.createController('index').getView();
+	inicio.open();
 
 });
