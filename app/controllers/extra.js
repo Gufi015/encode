@@ -2,32 +2,32 @@
 var args = $.args;
 
 var datosService = args.response;
-//
-// Ti.API.info('Datos.:' + JSON.stringify(datosService));
-//
-// var itemCollection = [];
-// for (var i = 0; i < datosService.data.length; i++) {
-// var tmp = {
-// template : 'template',
-// label : {
-// text : datosService.data[i].label
-// },
-// value : {
-// text : datosService.data[i].value
-// }
-//
-// };
-// itemCollection.push(tmp);
-// }
-//
-// $.section.setItems(itemCollection);
-//
-// $.section.width = Ti.UI.FILL;
-// $.section.height = '44dp';
-//
+
+Ti.API.info('Datos de respuesta: ' + JSON.stringify(datosService));
+
+var itemCollection = [];
+for (var i = 0; i < datosService.data.length; i++) {
+	var tmp = {
+		template : 'template',
+		label : {
+			text : datosService.data[i].label
+		},
+		value : {
+			text : datosService.data[i].value
+		}
+
+	};
+	itemCollection.push(tmp);
+}
+
+$.section.setItems(itemCollection);
+
+$.section.width = Ti.UI.FILL;
+$.section.height = '44dp';
+
 // var arry = [datosService];
-//
-// Ti.API.info('array ' + arry);
+// Ti.API.info('array ' + arry); 
+
 
 var datos = datosService;
 datos = [];
@@ -40,11 +40,11 @@ miarray.push({
 });
 Ti.App.Properties.setObject('miarray', miarray);
 
-Ti.API.info('Mi array dataservices' + miarray);
+Ti.API.info('Mi array dataservices' + JSON.stringify(miarray));
 
 for (var i = 0; i < miarray.length; i++) {
 	var value = Ti.App.Properties.getObject(miarray[i]);
-	Ti.API.info("datos de la propertie",miarray[i] + ' = ' + value);
+	Ti.API.info("datos de la propertie",JSON.stringify(miarray[i]) + ' = ' + value);
 }
 
 
