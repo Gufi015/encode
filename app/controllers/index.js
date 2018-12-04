@@ -141,7 +141,7 @@ btnEnvio.addEventListener('click', function(e) {
 					response : JSON.parse(this.responseText)
 				};
 
-				///Ti.App.Properties.setString('objetosService', miObjetoRespuesta);
+				
 				var info = Alloy.createController('info', miObjetoRespuesta).getView();
 				if (true) {
 					info.open();

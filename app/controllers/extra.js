@@ -24,6 +24,3 @@ $.section.setItems(itemCollection);
 
 $.section.width = Ti.UI.FILL;
 $.section.height = '44dp';
-
-// var arry = [datosService];
-// Ti.API.info('array ' + arry);

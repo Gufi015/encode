@@ -79,25 +79,16 @@ $.win.add(btnOtro);
 btnOtro.addEventListener('click', function(e) {
 	var inicio = Alloy.createController('index').getView();
 	inicio.open();
+
+	// var datos = [];
+	// Ti.App.Properties.setList('miarray', datos);
+	// var miarray = Ti.App.Properties.getList('miarray');
+// 
+	// datos.push(Ti.App.Properties.getList(miarray, datosService));
+// 
+	// for (var i = 0; i < datos.length; i++) {
+		// Ti.API.info('comienza for');
+		// Ti.API.info('Datos de la propertie ' + datos[i].push(datos));
+	// }
+
 });
-
-function datos() {
-	/*comienza*/
-	var datos = [];
-
-	Ti.App.Properties.setObject('miarray', datos);
-	var miarray = Ti.App.Properties.getObject('miarray', datos);
-
-	miarray.push(datosService);
-
-	datos.push(miarray);
-
-	for (var i = 0; i < datos.length; i++) {
-		Ti.API.info('comienza for');
-		Ti.API.info("datos de la propertie", JSON.stringify(datos[i]));
-	}
-
-	/*termina */
-}
-
-datos();
