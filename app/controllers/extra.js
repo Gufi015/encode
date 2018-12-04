@@ -33,19 +33,14 @@ $.section.height = '44dp';
 var datos = datosService;
 datos = [datosService];
 
-//Ti.App.Properties.setObject('miarray', datos);
-var miarray = Ti.App.Properties.getObject('miarray');
-
+var miarray = Ti.App.Properties.setObject('miarray');
+Ti.App.Properties.getObject('miarray');
 miarray.push({
 	"miarray" : datos
 });
-Ti.App.Properties.setObject('miarray', miarray);
-
-//Ti.API.info('Mi array dataservices' + JSON.stringify(miarray));
 
 for (var i = 0; i < miarray.length; i++) {
-	//var value = Ti.App.Properties.getObject(miarray[i]); + ' = ' + value
-	Ti.API.info("datos de la propertie", miarray[i]);
+	Ti.API.info("Datos de la propertie", miarray[i]);
 }
 
 /*Aqui termina*/

@@ -81,22 +81,23 @@ btnOtro.addEventListener('click', function(e) {
 	inicio.open();
 });
 
-/*comienza*/
-var datos = [];
+function datos() {
+	/*comienza*/
+	var datos = [];
 
-Ti.App.Properties.setObject('miarray', datos);
-var miarray = Ti.App.Properties.getObject('miarray', []);
+	Ti.App.Properties.setObject('miarray', datos);
+	var miarray = Ti.App.Properties.getObject('miarray', datos);
 
-miarray.push({
-	"miarray" : datosService
-});
+	miarray.push(datosService);
 
-for (var i = 0; i < miarray.length; i++) {
-	Ti.API.info('comienza for');
-	Ti.API.info("datos de la propertie", miarray[i] + datos);
+	datos.push(miarray);
+
+	for (var i = 0; i < datos.length; i++) {
+		Ti.API.info('comienza for');
+		Ti.API.info("datos de la propertie", JSON.stringify(datos[i]));
+	}
+
+	/*termina */
 }
 
-Ti.App.Properties.setObject('objectName', datosService);
-Ti.API.info(Ti.App.Properties.getObject('objectName'));
-
-/*termina */
+datos();

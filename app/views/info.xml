@@ -1,10 +1,8 @@
 <Alloy>
 	<Window id="win"  backgroundColor="#20B4D8">
 		<View id="winInfo">
-			<ScrollView id="scroll" showVerticalScrollIndicator="true" layout="vertical" >
-				<Label id="lblInfo">
-					Información
-				</Label>
+			<ScrollView id="scroll" showVerticalScrollIndicator="true" layout="vertical"  backgroundColor="#20B4D8">
+				<Label id="lblInfo">Información</Label>
 			</ScrollView>
 		</View>
 	</Window>

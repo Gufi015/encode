@@ -169,7 +169,7 @@ btnEnvio.addEventListener('click', function(e) {
 
 			},
 			onerror : function(e) {
-				alert('error al enviar la imagen: ' + e.error);
+				alert('error al enviar la imagen: ');
 			},
 			timeout : 20000,
 		});
