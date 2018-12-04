@@ -1,7 +1,7 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args;
 
-
+/*Ejemplo*/
 var props = Ti.App.Properties.listProperties();
 
 for (var i=0, ilen=props.length; i<ilen; i++){
