@@ -149,7 +149,7 @@ btnEnvio.addEventListener('click', function(e) {
 
 			},
 			onsendstream : function(e) {
-				Ti.API.info('*********************Enviando informaciòn Progress ' + e.progress);
+				Ti.API.info('Enviando informaciòn Progress ' + e.progress);
 				progresBar.show();
 
 				var value = 0;

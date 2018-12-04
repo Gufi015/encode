@@ -3,7 +3,7 @@ var args = $.args;
 
 var datosService = args.response;
 
-Ti.API.info('Datos de respuesta: ' + JSON.stringify(datosService));
+Ti.API.info('Datos de respuesta: ' + datosService);
 
 var itemCollection = [];
 for (var i = 0; i < datosService.data.length; i++) {
@@ -26,15 +26,14 @@ $.section.width = Ti.UI.FILL;
 $.section.height = '44dp';
 
 // var arry = [datosService];
-// Ti.API.info('array ' + arry); 
-
+// Ti.API.info('array ' + arry);
 
 /*Aqui comieza la parte de almacenaar los objetos en las properties*/
 
 var datos = datosService;
 datos = [datosService];
 
-Ti.App.Properties.setObject('miarray', datos);
+//Ti.App.Properties.setObject('miarray', datos);
 var miarray = Ti.App.Properties.getObject('miarray');
 
 miarray.push({
@@ -42,16 +41,16 @@ miarray.push({
 });
 Ti.App.Properties.setObject('miarray', miarray);
 
-Ti.API.info('Mi array dataservices' + JSON.stringify(miarray));
+//Ti.API.info('Mi array dataservices' + JSON.stringify(miarray));
 
 for (var i = 0; i < miarray.length; i++) {
-	var value = Ti.App.Properties.getObject(miarray[i]);
-	Ti.API.info("datos de la propertie",JSON.stringify(miarray[i]) + ' = ' + value);
+	//var value = Ti.App.Properties.getObject(miarray[i]); + ' = ' + value
+	Ti.API.info("datos de la propertie", miarray[i]);
 }
 
 /*Aqui termina*/
 
-//propertie de prueba 
+//propertie de prueba
 Ti.App.Properties.setString('Nombre', 'Guf');
 Ti.API.info('El valor de la propertie es: ' + Ti.App.Properties.getString('Nombre'));
 
