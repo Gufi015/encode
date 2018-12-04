@@ -27,25 +27,3 @@ $.section.height = '44dp';
 
 // var arry = [datosService];
 // Ti.API.info('array ' + arry);
-
-/*Aqui comieza la parte de almacenaar los objetos en las properties*/
-
-var datos = datosService;
-datos = [datosService];
-
-var miarray = Ti.App.Properties.setObject('miarray');
-Ti.App.Properties.getObject('miarray');
-miarray.push({
-	"miarray" : datos
-});
-
-for (var i = 0; i < miarray.length; i++) {
-	Ti.API.info("Datos de la propertie", miarray[i]);
-}
-
-/*Aqui termina*/
-
-//propertie de prueba
-Ti.App.Properties.setString('Nombre', 'Guf');
-Ti.API.info('El valor de la propertie es: ' + Ti.App.Properties.getString('Nombre'));
-
