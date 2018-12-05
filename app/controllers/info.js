@@ -67,7 +67,7 @@ btnSig.addEventListener('click', function(e) {
 });
 
 var btnOtro = Ti.UI.createButton({
-	title : 'Atras',
+	title : 'Propertie',
 	width : '140dp',
 	backgroundColor : 'white',
 	color : 'black',
@@ -77,18 +77,22 @@ var btnOtro = Ti.UI.createButton({
 $.win.add(btnOtro);
 
 btnOtro.addEventListener('click', function(e) {
-	var inicio = Alloy.createController('index').getView();
-	inicio.open();
+	// var inicio = Alloy.createController('index').getView();
+	// inicio.open();
+	var myArray = [];
 
-	// var datos = [];
-	// Ti.App.Properties.setList('miarray', datos);
-	// var miarray = Ti.App.Properties.getList('miarray');
-// 
-	// datos.push(Ti.App.Properties.getList(miarray, datosService));
-// 
-	// for (var i = 0; i < datos.length; i++) {
-		// Ti.API.info('comienza for');
-		// Ti.API.info('Datos de la propertie ' + datos[i].push(datos));
-	// }
+	Ti.App.Properties.setList('myList', myArray);
+	var nuevoArray = myArray.push(datosService);
+	Ti.App.Properties.setList('myList', myArray);
+
+	Ti.API.info('List: ' + JSON.stringify(Ti.App.Properties.getList('myList')));
 
 });
+
+var props = Ti.App.Properties.listProperties();
+
+for (var i = 0,
+    ilen = props.length; i < ilen; i++) {
+	var value = Ti.App.Properties.getString(props[i]);
+	Ti.API.info(props[i] + ' = ' + value);
+}

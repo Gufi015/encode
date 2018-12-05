@@ -141,7 +141,6 @@ btnEnvio.addEventListener('click', function(e) {
 					response : JSON.parse(this.responseText)
 				};
 
-				
 				var info = Alloy.createController('info', miObjetoRespuesta).getView();
 				if (true) {
 					info.open();
@@ -230,9 +229,23 @@ $.index.addEventListener('androidback', function(e) {
 
 $.index.open();
 
+
+
+function nom(){
+	if( 1 > 0){
+		alert();
+	}
+	if( !false){
+		
+	}else{
+		alert();
+	} 
+}
+
 // var writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'demo.txt');
 // if (writeFile.exists() === false) {
 // // you don't need to do this, but you could...
 // writeFile.createFile();
 // }
 // writeFile.write("Txt");
+
