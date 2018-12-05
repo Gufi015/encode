@@ -80,17 +80,19 @@ btnOtro.addEventListener('click', function(e) {
 	// var inicio = Alloy.createController('index').getView();
 	// inicio.open();
 	var myArray = [];
-
-	Ti.App.Properties.setList('myList', myArray);
-	var nuevoArray = myArray.push(datosService);
-	Ti.App.Properties.setList('myList', myArray);
+	if (!Ti.App.Properties.hasProperty('mylist')) {
+		var nuevoArray = myArray.push(datosService);
+		Ti.App.Properties.setList('myList', myArray);
+	}
+	//Ti.App.Properties.setList('myList', myArray);
 
 	Ti.API.info('List: ' + JSON.stringify(Ti.App.Properties.getList('myList')));
 
 });
 
-var props = Ti.App.Properties.listProperties();
 
+//ver el listado de properties que hay
+var props = Ti.App.Properties.listProperties();
 for (var i = 0,
     ilen = props.length; i < ilen; i++) {
 	var value = Ti.App.Properties.getString(props[i]);
