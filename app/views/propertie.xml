@@ -1,5 +1,5 @@
 <Alloy>
 	<Window id="win">
-		<View class="container"></View>
+		<View id="container"></View>
 	</Window>
 </Alloy>

@@ -1,4 +1,6 @@
 
-".container" : {
-  
+"#container": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	backgroundColor: 'white'
 }
