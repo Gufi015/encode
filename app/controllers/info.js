@@ -20,7 +20,7 @@ for (var i = 0; i < nuevoObjeto.data.length; i++) {
 	var viewInformacion = Ti.UI.createView({
 		layout : 'vertical',
 		width : Ti.UI.FILL,
-		height : '100dp',
+		height : '120dp',
 		borderColor : 'black',
 		top : 1,
 	});
@@ -79,17 +79,16 @@ $.win.add(btnOtro);
 btnOtro.addEventListener('click', function(e) {
 	// var inicio = Alloy.createController('index').getView();
 	// inicio.open();
-	var myArray = [];
-	if (!Ti.App.Properties.hasProperty('mylist')) {
-		var nuevoArray = myArray.push(datosService);
-		Ti.App.Properties.setList('myList', myArray);
-	}
-	//Ti.App.Properties.setList('myList', myArray);
-
-	Ti.API.info('List: ' + JSON.stringify(Ti.App.Properties.getList('myList')));
+	// var myArray = [];
+	// if (!Ti.App.Properties.hasProperty('mylist')) {
+	// var nuevoArray = myArray.push(datosService);
+	// Ti.App.Properties.setList('myList', myArray);
+	// }
+	// //Ti.App.Properties.setList('myList', myArray);
+	//
+	// Ti.API.info('List: ' + JSON.stringify(Ti.App.Properties.getList('myList')));
 
 });
-
 
 //ver el listado de properties que hay
 var props = Ti.App.Properties.listProperties();
@@ -98,3 +97,34 @@ for (var i = 0,
 	var value = Ti.App.Properties.getString(props[i]);
 	Ti.API.info(props[i] + ' = ' + value);
 }
+
+
+if (!Ti.App.Properties.hasProperty('miarray')) {
+	Ti.App.Properties.setObject('miarray', []);
+}
+
+
+function datos() {	
+	var datos = Ti.App.Properties.getObject('miarray');
+	///veamos antes los valores actuales de "miarray"
+	Ti.API.info('===valor anterior property "miarray" ======');
+	Ti.API.info('contenido array: ' + JSON.stringify(Ti.App.Properties.getObject('miarray', datos)));
+	Ti.API.info('==============');
+	////
+	for (var i = 0; i < datosService.length; i++) {
+		datos.push(datosService[i]);
+	}
+
+	
+	Ti.API.info('===valor posterior property "miarray" ======');
+	Ti.App.Properties.setObject('miarray', datos);
+	//Ti.App.properties.setObject('miarray', datos);
+	Ti.API.info('==============');
+	/*termina*/
+
+	//leamos la propertiy despes de actualziar para ver su contenido actual despues del proceso
+	Ti.API.info(JSON.stringify(Ti.App.Properties.getObject('miarray',datos)));
+}
+
+datos();
+
