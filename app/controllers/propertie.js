@@ -101,20 +101,22 @@ btnEliminar.addEventListener('click', function(e) {
 });
 
 var response = args;
-Ti.API.info(JSON.stringify(response));
+var nuevoObjeto = response;
+
+Ti.API.info(JSON.stringify(nuevoObjeto));
 var db = Ti.Database.open('confianza');
 db.execute('CREATE TABLE IF NOT EXISTS DOCUMENTS ( name TEXT);');
-for (var i in response) {
-	db.execute('INSERT INTO DOCUMENTS (name) VALUES(?)', response[i].documentType);
-	db.close();
-	Ti.API.info('Response ' + response[i].data.value);
+var db = Ti.Database.open('confianza');
+db.execute('INSERT INTO DOCUMENTS (name) VALUES(?)', nuevoObjeto.documentType);
+db.close();
+
+for (var i in nuevoObjeto) {
+	Ti.API.info('Response ' + nuevoObjeto);
 
 }
 
-
-var nuevoObjeto = response;
-for (var i = 0; i < nuevoObjeto.response.data.length; i++) {
-	Ti.API.info('1' + nuevoObjeto.response.data[i].value);
-	Ti.API.info('2' + JSON.stringify(nuevoObjeto.response.data[i].value));
+for (var i = 0; i < nuevoObjeto.data.length; i++) {
+	Ti.API.info('1:===' + nuevoObjeto.data[i].label);
+	Ti.API.info('2:===' + JSON.stringify(nuevoObjeto.data[i].value));
 }
 

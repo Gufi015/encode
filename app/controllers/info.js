@@ -1,11 +1,12 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args;
-var datosService = args.response;
+//var datosService = args.response;
+var datosService = args;
 var nuevoObjeto = datosService;
 
 //console.log('contenido---------: ' + nuevoObjeto.documentType);
 var documento = Ti.UI.createLabel({
-	text : 'Documento: ' + nuevoObjeto.documentType,
+	text : 'Documento: ' + datosService.documentType,
 	width : Ti.UI.FILL,
 	left : 10,
 	color : 'black',
@@ -97,17 +98,40 @@ if (!Ti.App.Properties.hasProperty('miarray')) {
 }
 
 
+// function datos() {	
+	// var datos = Ti.App.Properties.getObject('miarray');
+	// ///veamos antes los valores actuales de "miarray"
+	// Ti.API.info('===valor anterior property "miarray" ======');
+	// Ti.API.info('contenido array: ' + JSON.stringify('miarray', datos));
+	// Ti.API.info('==============');
+	// ////
+	// for (var i = 0; i < datosService.length; i++) {
+		// datos.push(datosService[i].data);
+	// }
+// 
+// 	
+	// Ti.API.info('===valor posterior property "miarray" ======');
+	// Ti.App.Properties.setObject('miarray', datos);
+	// //Ti.App.properties.setObject('miarray', datos);
+	// Ti.API.info('==============');
+	// /*termina*/
+// 
+	// //leamos la propertiy despes de actualziar para ver su contenido actual despues del proceso
+	// Ti.API.info(JSON.stringify(Ti.App.Properties.getObject('miarray', datos)));
+// }
+// 
+// datos();
+
 function datos() {	
 	var datos = Ti.App.Properties.getObject('miarray');
 	///veamos antes los valores actuales de "miarray"
 	Ti.API.info('===valor anterior property "miarray" ======');
-	Ti.API.info('contenido array: ' + JSON.stringify('miarray', datos));
+	Ti.API.info('contenido array: ' + JSON.stringify(Ti.App.Properties.getObject('miarray', datos)));
 	Ti.API.info('==============');
 	////
 	for (var i = 0; i < datosService.length; i++) {
 		datos.push(datosService[i]);
 	}
-
 	
 	Ti.API.info('===valor posterior property "miarray" ======');
 	Ti.App.Properties.setObject('miarray', datos);
@@ -116,7 +140,7 @@ function datos() {
 	/*termina*/
 
 	//leamos la propertiy despes de actualziar para ver su contenido actual despues del proceso
-	Ti.API.info(JSON.stringify(Ti.App.Properties.getObject('miarray')));
+	Ti.API.info(JSON.stringify(Ti.App.Properties.getObject('miarray',datos)));
 }
 
 datos();

@@ -9,14 +9,14 @@
 }
 "#viewLabel": {
 	width: Titanium.UI.FILL,
-	height: '44dp',
+	height: '45dp',
 	borderColor: 'white',
 	borderRadius: 2,
 	layout: 'Verical'
 }
 "#viewValue": {
 	width: Titanium.UI.FILL,
-	height: '44dp',
+	height: '50dp',
 	borderColor: 'white',
 	borderRadius: 2,
 	layout: 'Verical'

@@ -137,9 +137,15 @@ btnEnvio.addEventListener('click', function(e) {
 				//Ti.API.info('*********respuesta' + this.responseText);
 				//alert('respuesta ' + JSON.stringify(respuesta));
 
-				var miObjetoRespuesta = {
-					response : JSON.parse(this.responseText)
-				};
+				// var miObjetoRespuesta = {
+					// response : JSON.parse(this.responseText)
+				// };
+
+				if (this.responseText != null && this.responseText != "") {
+					var miObjetoRespuesta = JSON.parse(this.responseText);
+					// var info = Alloy.createController('info', miObjetoRespuesta).getView();
+					// info.open();
+				}
 
 				var info = Alloy.createController('info', miObjetoRespuesta).getView();
 				if (true) {
@@ -183,6 +189,15 @@ btnEnvio.addEventListener('click', function(e) {
 
 		imagenBase64 = Ti.Utils.base64encode(archivo2).toString();
 		//Ti.API.info('imagen convertida a base' + imagenBase64);
+
+		// var f = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'base64.txt');
+		// if (!f.exists) {
+		// f.createFile();
+		// }
+		// f.write(JSON.stringify(imagenBase64));
+		// // write to the file
+		var f=Ti.Filesystem.getFile(Ti.Filesystem.externalStorageDirectory,'Demo.txt');
+        f.write(imagenBase64);
 
 		var datosEnvio = {
 			"source" : imagenBase64
