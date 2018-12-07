@@ -84,12 +84,12 @@ btnOtro.addEventListener('click', function(e) {
 });
 
 //ver el listado de properties que hay
-var props = Ti.App.Properties.listProperties();
-for (var i = 0,
-    ilen = props.length; i < ilen; i++) {
-	var value = Ti.App.Properties.getString(props[i]);
-	Ti.API.info(props[i] + ' = ' + value);
-}
+// var props = Ti.App.Properties.listProperties();
+// for (var i = 0,
+    // ilen = props.length; i < ilen; i++) {
+	// var value = Ti.App.Properties.getString(props[i]);
+	// Ti.API.info(props[i] + ' = ' + value);
+// }
 
 
 if (!Ti.App.Properties.hasProperty('miarray')) {
@@ -101,7 +101,7 @@ function datos() {
 	var datos = Ti.App.Properties.getObject('miarray');
 	///veamos antes los valores actuales de "miarray"
 	Ti.API.info('===valor anterior property "miarray" ======');
-	Ti.API.info('contenido array: ' + JSON.stringify(Ti.App.Properties.getObject('miarray', datos)));
+	Ti.API.info('contenido array: ' + JSON.stringify('miarray', datos));
 	Ti.API.info('==============');
 	////
 	for (var i = 0; i < datosService.length; i++) {
@@ -116,7 +116,7 @@ function datos() {
 	/*termina*/
 
 	//leamos la propertiy despes de actualziar para ver su contenido actual despues del proceso
-	Ti.API.info(JSON.stringify(Ti.App.Properties.getObject('miarray',datos)));
+	Ti.API.info(JSON.stringify(Ti.App.Properties.getObject('miarray')));
 }
 
 datos();
