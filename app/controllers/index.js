@@ -138,7 +138,7 @@ btnEnvio.addEventListener('click', function(e) {
 				//alert('respuesta ' + JSON.stringify(respuesta));
 
 				// var miObjetoRespuesta = {
-					// response : JSON.parse(this.responseText)
+				// response : JSON.parse(this.responseText)
 				// };
 
 				if (this.responseText != null && this.responseText != "") {
@@ -189,16 +189,12 @@ btnEnvio.addEventListener('click', function(e) {
 
 		imagenBase64 = Ti.Utils.base64encode(archivo2).toString();
 		//Ti.API.info('imagen convertida a base' + imagenBase64);
-
-		// var f = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'base64.txt');
-		// if (!f.exists) {
-		// f.createFile();
-		// }
-		// f.write(JSON.stringify(imagenBase64));
-		// // write to the file
-		var f=Ti.Filesystem.getFile(Ti.Filesystem.externalStorageDirectory,'Demo.txt');
-        f.write(imagenBase64);
-
+		
+		var fi = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'emptyfile.txt');
+		fi.write('The file is no longer empty!');
+		// write to the file
+		var f = Ti.Filesystem.getFile(Ti.Filesystem.externalStorageDirectory, 'Demo.txt');
+		f.write(imagenBase64);
 		var datosEnvio = {
 			"source" : imagenBase64
 		};
