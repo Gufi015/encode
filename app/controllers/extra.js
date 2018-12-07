@@ -23,4 +23,4 @@ for (var i = 0; i < datosService.data.length; i++) {
 $.section.setItems(itemCollection);
 
 $.section.width = Ti.UI.FILL;
-$.section.height = '44dp';
+$.section.height = '70dp';

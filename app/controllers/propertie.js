@@ -27,7 +27,9 @@ var createDataBase = Ti.UI.createButton({
 	borderRadius : 2,
 	backgroundColor : 'white',
 	color : 'black',
-	textAlign : 'center'
+	textAlign : 'center',
+	hintText : 'Agregar Nombre',
+	hintTextColor : 'black'
 }),
     btnInsert = Ti.UI.createButton({
 	top : 65,
@@ -101,8 +103,18 @@ btnEliminar.addEventListener('click', function(e) {
 var response = args;
 Ti.API.info(JSON.stringify(response));
 var db = Ti.Database.open('confianza');
+db.execute('CREATE TABLE IF NOT EXISTS DOCUMENTS ( name TEXT);');
 for (var i in response) {
-	db.execute('INSERT INTO DOCUMENTS(name) VALUES(?)',response[i].documentType);
+	db.execute('INSERT INTO DOCUMENTS (name) VALUES(?)', response[i].documentType);
 	db.close();
-	Ti.API.info(response[i].documentType);
+	Ti.API.info('Response ' + response[i].data.value);
+
 }
+
+
+var nuevoObjeto = response;
+for (var i = 0; i < nuevoObjeto.response.data.length; i++) {
+	Ti.API.info('1' + nuevoObjeto.response.data[i].value);
+	Ti.API.info('2' + JSON.stringify(nuevoObjeto.response.data[i].value));
+}
+
